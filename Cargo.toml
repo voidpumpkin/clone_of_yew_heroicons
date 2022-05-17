@@ -1,6 +1,10 @@
 [package]
 name = "yew_heroicons"
 version = "0.1.0"
+description = "Yew components for heroicons (https://heroicons.com)"
+authors = ["Justin Wood <me@ankhers.dev>"]
+repository = "https://git.sr.ht/~ankhers/yew_heroicons"
+license = "MIT"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
