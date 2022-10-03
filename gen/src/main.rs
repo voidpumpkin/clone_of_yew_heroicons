@@ -7,7 +7,7 @@ use regex::Regex;
 
 fn main() {
     let mut main = File::create("../src/lib.rs").unwrap();
-    main.write("pub mod props;".as_bytes()).unwrap();
+    main.write_all("pub mod props;".as_bytes()).unwrap();
 
     for style in fs::read_dir("../heroicons/optimized/").unwrap() {
         let style = style.unwrap();
@@ -19,7 +19,7 @@ fn main() {
         let mut style_mod = File::create(format!("../src/{}.rs", style_name)).unwrap();
 
         style_mod
-            .write(
+            .write_all(
                 "use yew::prelude::*;
 
 use crate::props::Props;
@@ -50,27 +50,25 @@ use crate::props::Props;
                 let re = Regex::new("fill=\"none\"").unwrap();
                 let svg = re.replace(&svg, "fill=\"currentColor\"");
 
-                let snake_case = file_name.to_case(Case::Snake);
+                let component = component(file_name.to_case(Case::Pascal), svg.to_string());
 
-                let component =
-                    component(file_name.to_case(Case::Pascal), snake_case, svg.to_string());
-
-                style_mod.write(component.as_bytes()).unwrap();
+                #[allow(clippy::unused_io_amount)]
+                style_mod.write_all(component.as_bytes()).unwrap();
             }
         }
     }
 }
 
-fn component(name: String, fn_name: String, svg: String) -> String {
+fn component(name: String, svg: String) -> String {
     format!(
-        "#[function_component({}Icon)]
-pub fn {}(props: &Props) -> Html {{
+        "#[function_component]
+pub fn {}Icon(props: &Props) -> Html {{
   html! {{
     {}
   }}
 }}
 
 ",
-        name, fn_name, svg
+        name, svg
     )
 }
