@@ -1,35 +1,67 @@
-use std::fs;
+// #![allow(clippy::unused_io_amount)]
+
 use std::fs::File;
 use std::io::Write;
+use std::{fs, path};
 
 use convert_case::{Case, Casing};
 use regex::Regex;
 
+const PROPS: &str = "use yew::prelude::*;
+
+#[derive(Clone, Properties, Eq, PartialEq)]
+pub struct Props {
+    #[prop_or_default]
+    pub class: String,
+}";
+
 fn main() {
-    let mut main = File::create("../src/lib.rs").unwrap();
-    main.write_all("pub mod props;".as_bytes()).unwrap();
+    create_folder("./src/".to_string());
+    let mut main = File::create("./src/lib.rs").unwrap();
 
-    for style in fs::read_dir("../heroicons/optimized/").unwrap() {
-        let style = style.unwrap();
-        let style_path = style.path();
-        let style_name = style_path.file_stem().unwrap().to_str().unwrap();
+    writeln!(&mut main, "pub mod props;").unwrap();
+    let mut props_file = File::create("./src/props.rs").unwrap();
+    writeln!(&mut props_file, "{}", PROPS).unwrap();
 
-        writeln!(&mut main, "pub mod {};", style_name).unwrap();
+    for size_folder in fs::read_dir("./heroicons/optimized/").unwrap() {
+        let size_folder = size_folder.unwrap();
+        let size_folder_path = size_folder.path();
+        let size_folder_name = size_folder_path.file_stem().unwrap().to_str().unwrap();
 
-        let mut style_mod = File::create(format!("../src/{}.rs", style_name)).unwrap();
+        create_folder(format!("./src/size_{size_folder_name}/"));
+        let mut size_module =
+            File::create(format!("./src/size_{size_folder_name}/mod.rs")).unwrap();
+        process_styles(&mut size_module, size_folder_name);
+        writeln!(&mut main, "pub mod size_{size_folder_name};").unwrap();
+    }
+}
 
-        style_mod
-            .write_all(
-                "use yew::prelude::*;
+fn create_folder(path: String) {
+    if !path::Path::new(&path).exists() {
+        fs::create_dir(path).unwrap();
+    }
+}
 
-use crate::props::Props;
+fn process_styles(module_file: &mut File, size_folder_name: &str) {
+    for style_folder in fs::read_dir(format!("./heroicons/optimized/{size_folder_name}/")).unwrap()
+    {
+        let style_folder = style_folder.unwrap();
+        let style_folder_path = style_folder.path();
+        let style_folder_name = style_folder_path.file_stem().unwrap().to_str().unwrap();
 
-"
-                .as_bytes(),
-            )
-            .unwrap();
+        writeln!(module_file, "pub mod {};", style_folder_name).unwrap();
 
-        if let Ok(files) = fs::read_dir(format!("../heroicons/optimized/{}/", style_name)) {
+        create_folder(format!(
+            "./src/size_{size_folder_name}/{style_folder_name}/"
+        ));
+        let mut style_module = File::create(format!(
+            "./src/size_{size_folder_name}/{style_folder_name}/mod.rs"
+        ))
+        .unwrap();
+
+        if let Ok(files) = fs::read_dir(format!(
+            "./heroicons/optimized/{size_folder_name}/{style_folder_name}"
+        )) {
             for file in files {
                 let file = file.unwrap();
                 let path = file.path();
@@ -52,8 +84,14 @@ use crate::props::Props;
 
                 let component = component(file_name.to_case(Case::Pascal), svg.to_string());
 
-                #[allow(clippy::unused_io_amount)]
-                style_mod.write_all(component.as_bytes()).unwrap();
+                let snake_name = file_name.to_case(Case::Snake);
+
+                writeln!(&mut style_module, "pub mod {};", snake_name).unwrap();
+                let mut component_file = File::create(format!(
+                    "./src/size_{size_folder_name}/{style_folder_name}/{snake_name}.rs"
+                ))
+                .unwrap();
+                writeln!(&mut component_file, "{}", component).unwrap();
             }
         }
     }
@@ -61,14 +99,15 @@ use crate::props::Props;
 
 fn component(name: String, svg: String) -> String {
     format!(
-        "#[function_component]
+        "use yew::prelude::*;
+use crate::props::Props;
+
+#[function_component]
 pub fn {}Icon(props: &Props) -> Html {{
   html! {{
     {}
   }}
-}}
-
-",
+}}",
         name, svg
     )
 }
