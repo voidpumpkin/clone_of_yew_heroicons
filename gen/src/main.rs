@@ -72,7 +72,7 @@ fn process_styles(module_file: &mut File, size_folder_name: &str) {
                 let svg = svg.trim();
 
                 let re = Regex::new(r"<svg ").unwrap();
-                let svg = re.replace(svg, "<svg {{class}} fill-rule=\"currentColor\" ");
+                let svg = re.replace(svg, "<svg {class} fill-rule=\"currentColor\" ");
 
                 let re = Regex::new("fill=\"#[\\w]{3,6}\"").unwrap();
                 let svg = re.replace_all(&svg, "");
