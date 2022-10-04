@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 convert_case = "0.5.0"
 regex = "1"
+data-uri-utils = "0.2.0"

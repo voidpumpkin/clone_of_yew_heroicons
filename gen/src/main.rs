@@ -5,6 +5,7 @@ use std::io::Write;
 use std::{fs, path};
 
 use convert_case::{Case, Casing};
+use data_uri_utils::svg_str_to_data_uri;
 use regex::Regex;
 
 const PROPS: &str = "use yew::prelude::*;
@@ -71,6 +72,8 @@ fn process_styles(module_file: &mut File, size_folder_name: &str) {
                 let svg = fs::read_to_string(file.path()).unwrap();
                 let svg = svg.trim();
 
+                let svg_for_comment = svg_str_to_data_uri(svg);
+
                 let re = Regex::new(r"<svg ").unwrap();
                 let svg = re.replace(svg, "<svg {class} fill-rule=\"currentColor\" ");
 
@@ -80,11 +83,16 @@ fn process_styles(module_file: &mut File, size_folder_name: &str) {
                 let re = Regex::new("fill=\"none\"").unwrap();
                 let svg = re.replace(&svg, "fill=\"currentColor\"");
 
-                let component = component(file_name.to_case(Case::Pascal), svg.to_string());
+                let component = component(
+                    file_name.to_case(Case::Pascal),
+                    svg.to_string(),
+                    svg_for_comment,
+                );
 
                 let snake_name = file_name.to_case(Case::Snake);
 
                 writeln!(&mut style_module, "pub mod {};", snake_name).unwrap();
+                writeln!(&mut style_module, "pub use {}::*;", snake_name).unwrap();
                 let mut component_file = File::create(format!(
                     "./src/size_{size_folder_name}/{style_folder_name}/{snake_name}.rs"
                 ))
@@ -95,19 +103,19 @@ fn process_styles(module_file: &mut File, size_folder_name: &str) {
     }
 }
 
-fn component(name: String, svg: String) -> String {
+fn component(name: String, svg: String, data_uri: String) -> String {
     format!(
-        "use yew::prelude::*;
+        r#"use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="{data_uri}">
 #[function_component]
-pub fn {}Icon(props: &Props) -> Html {{
+pub fn {name}Icon(props: &Props) -> Html {{
     let Props {{ class }} = props.clone();
 
   html! {{
-{}
+{svg}
   }}
-}}",
-        name, svg
+}}"#
     )
 }
