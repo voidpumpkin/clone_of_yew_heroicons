@@ -1,3 +1,3 @@
 pub mod props;
-pub mod size_solid;
-pub mod size_outline;
+pub mod size_24;
+pub mod size_20;
