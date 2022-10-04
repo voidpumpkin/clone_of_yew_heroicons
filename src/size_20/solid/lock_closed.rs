@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20fill%2Drule%3D%22evenodd%22%20d%3D%22M10%201a4%2E5%204%2E5%200%2000%2D4%2E5%204%2E5V9H5a2%202%200%2000%2D2%202v6a2%202%200%20002%202h10a2%202%200%20002%2D2v%2D6a2%202%200%2000%2D2%2D2h%2D%2E5V5%2E5A4%2E5%204%2E5%200%200010%201zm3%208V5%2E5a3%203%200%2010%2D6%200V9h6z%22%20clip%2Drule%3D%22evenodd%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn LockClosedIcon(props: &Props) -> Html {
     let Props { class } = props.clone();

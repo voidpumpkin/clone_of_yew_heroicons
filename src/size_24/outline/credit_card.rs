@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%2Dwidth%3D%221%2E5%22%20stroke%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20stroke%2Dlinecap%3D%22round%22%20stroke%2Dlinejoin%3D%22round%22%20d%3D%22M2%2E25%208%2E25h19%2E5M2%2E25%209h19%2E5m%2D16%2E5%205%2E25h6m%2D6%202%2E25h3m%2D3%2E75%203h15a2%2E25%202%2E25%200%20002%2E25%2D2%2E25V6%2E75A2%2E25%202%2E25%200%200019%2E5%204%2E5h%2D15a2%2E25%202%2E25%200%2000%2D2%2E25%202%2E25v10%2E5A2%2E25%202%2E25%200%20004%2E5%2019%2E5z%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn CreditCardIcon(props: &Props) -> Html {
     let Props { class } = props.clone();

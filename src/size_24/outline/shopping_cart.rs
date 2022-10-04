@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%2Dwidth%3D%221%2E5%22%20stroke%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20stroke%2Dlinecap%3D%22round%22%20stroke%2Dlinejoin%3D%22round%22%20d%3D%22M2%2E25%203h1%2E386c%2E51%200%20%2E955%2E343%201%2E087%2E835l%2E383%201%2E437M7%2E5%2014%2E25a3%203%200%2000%2D3%203h15%2E75m%2D12%2E75%2D3h11%2E218c1%2E121%2D2%2E3%202%2E1%2D4%2E684%202%2E924%2D7%2E138a60%2E114%2060%2E114%200%2000%2D16%2E536%2D1%2E84M7%2E5%2014%2E25L5%2E106%205%2E272M6%2020%2E25a%2E75%2E75%200%2011%2D1%2E5%200%20%2E75%2E75%200%20011%2E5%200zm12%2E75%200a%2E75%2E75%200%2011%2D1%2E5%200%20%2E75%2E75%200%20011%2E5%200z%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn ShoppingCartIcon(props: &Props) -> Html {
     let Props { class } = props.clone();

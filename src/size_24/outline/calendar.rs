@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%2Dwidth%3D%221%2E5%22%20stroke%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20stroke%2Dlinecap%3D%22round%22%20stroke%2Dlinejoin%3D%22round%22%20d%3D%22M6%2E75%203v2%2E25M17%2E25%203v2%2E25M3%2018%2E75V7%2E5a2%2E25%202%2E25%200%20012%2E25%2D2%2E25h13%2E5A2%2E25%202%2E25%200%200121%207%2E5v11%2E25m%2D18%200A2%2E25%202%2E25%200%20005%2E25%2021h13%2E5A2%2E25%202%2E25%200%200021%2018%2E75m%2D18%200v%2D7%2E5A2%2E25%202%2E25%200%20015%2E25%209h13%2E5A2%2E25%202%2E25%200%200121%2011%2E25v7%2E5%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn CalendarIcon(props: &Props) -> Html {
     let Props { class } = props.clone();

@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20d%3D%22M13%204%2E5a2%2E5%202%2E5%200%2011%2E702%201%2E737L6%2E97%209%2E604a2%2E518%202%2E518%200%20010%20%2E792l6%2E733%203%2E367a2%2E5%202%2E5%200%2011%2D%2E671%201%2E341l%2D6%2E733%2D3%2E367a2%2E5%202%2E5%200%20110%2D3%2E475l6%2E733%2D3%2E366A2%2E52%202%2E52%200%200113%204%2E5z%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn ShareIcon(props: &Props) -> Html {
     let Props { class } = props.clone();

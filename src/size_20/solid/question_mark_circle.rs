@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20fill%2Drule%3D%22evenodd%22%20d%3D%22M18%2010a8%208%200%2011%2D16%200%208%208%200%200116%200zM8%2E94%206%2E94a%2E75%2E75%200%2011%2D1%2E061%2D1%2E061%203%203%200%20112%2E871%205%2E026v%2E345a%2E75%2E75%200%2001%2D1%2E5%200v%2D%2E5c0%2D%2E72%2E57%2D1%2E172%201%2E081%2D1%2E287A1%2E5%201%2E5%200%20108%2E94%206%2E94zM10%2015a1%201%200%20100%2D2%201%201%200%20000%202z%22%20clip%2Drule%3D%22evenodd%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn QuestionMarkCircleIcon(props: &Props) -> Html {
     let Props { class } = props.clone();

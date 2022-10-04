@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%2Dwidth%3D%221%2E5%22%20stroke%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20stroke%2Dlinecap%3D%22round%22%20stroke%2Dlinejoin%3D%22round%22%20d%3D%22M12%206v12m%2D3%2D2%2E818l%2E879%2E659c1%2E171%2E879%203%2E07%2E879%204%2E242%200%201%2E172%2D%2E879%201%2E172%2D2%2E303%200%2D3%2E182C13%2E536%2012%2E219%2012%2E768%2012%2012%2012c%2D%2E725%200%2D1%2E45%2D%2E22%2D2%2E003%2D%2E659%2D1%2E106%2D%2E879%2D1%2E106%2D2%2E303%200%2D3%2E182s2%2E9%2D%2E879%204%2E006%200l%2E415%2E33M21%2012a9%209%200%2011%2D18%200%209%209%200%200118%200z%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn CurrencyDollarIcon(props: &Props) -> Html {
     let Props { class } = props.clone();

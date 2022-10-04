@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%2Dwidth%3D%221%2E5%22%20stroke%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20stroke%2Dlinecap%3D%22round%22%20stroke%2Dlinejoin%3D%22round%22%20d%3D%22M12%207%2E5h1%2E5m%2D1%2E5%203h1%2E5m%2D7%2E5%203h7%2E5m%2D7%2E5%203h7%2E5m3%2D9h3%2E375c%2E621%200%201%2E125%2E504%201%2E125%201%2E125V18a2%2E25%202%2E25%200%2001%2D2%2E25%202%2E25M16%2E5%207%2E5V18a2%2E25%202%2E25%200%20002%2E25%202%2E25M16%2E5%207%2E5V4%2E875c0%2D%2E621%2D%2E504%2D1%2E125%2D1%2E125%2D1%2E125H4%2E125C3%2E504%203%2E75%203%204%2E254%203%204%2E875V18a2%2E25%202%2E25%200%20002%2E25%202%2E25h13%2E5M6%207%2E5h3v3H6v%2D3z%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn NewspaperIcon(props: &Props) -> Html {
     let Props { class } = props.clone();

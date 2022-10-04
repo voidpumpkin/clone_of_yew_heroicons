@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%2Dwidth%3D%221%2E5%22%20stroke%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20stroke%2Dlinecap%3D%22round%22%20stroke%2Dlinejoin%3D%22round%22%20d%3D%22M19%2E114%205%2E636a9%209%200%20010%2012%2E728M16%2E463%208%2E288a5%2E25%205%2E25%200%20010%207%2E424M6%2E75%208%2E25l4%2E72%2D4%2E72a%2E75%2E75%200%20011%2E28%2E53v15%2E88a%2E75%2E75%200%2001%2D1%2E28%2E53l%2D4%2E72%2D4%2E72H4%2E51c%2D%2E88%200%2D1%2E704%2D%2E507%2D1%2E938%2D1%2E354A9%2E01%209%2E01%200%20012%2E25%2012c0%2D%2E83%2E112%2D1%2E633%2E322%2D2%2E396C2%2E806%208%2E756%203%2E63%208%2E25%204%2E51%208%2E25H6%2E75z%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn SpeakerWaveIcon(props: &Props) -> Html {
     let Props { class } = props.clone();

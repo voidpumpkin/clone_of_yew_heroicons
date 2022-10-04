@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20d%3D%22M12%209a1%201%200%2001%2D1%2D1V3c0%2D%2E553%2E45%2D1%2E008%2E997%2D%2E93a7%2E004%207%2E004%200%20015%2E933%205%2E933c%2E078%2E547%2D%2E378%2E997%2D%2E93%2E997h%2D5z%22%2F%3E%20%3Cpath%20d%3D%22M8%2E003%204%2E07C8%2E55%203%2E992%209%204%2E447%209%205v5a1%201%200%20001%201h5c%2E552%200%201%2E008%2E45%2E93%2E997A7%2E001%207%2E001%200%20012%2011a7%2E002%207%2E002%200%20016%2E003%2D6%2E93z%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn ChartPieIcon(props: &Props) -> Html {
     let Props { class } = props.clone();

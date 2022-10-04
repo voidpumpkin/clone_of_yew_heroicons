@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use crate::props::Props;
 
+/// <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22currentColor%22%20aria%2Dhidden%3D%22true%22%3E%20%3Cpath%20d%3D%22M1%2E5%208%2E67v8%2E58a3%203%200%20003%203h15a3%203%200%20003%2D3V8%2E67l%2D8%2E928%205%2E493a3%203%200%2001%2D3%2E144%200L1%2E5%208%2E67z%22%2F%3E%20%3Cpath%20d%3D%22M22%2E5%206%2E908V6%2E75a3%203%200%2000%2D3%2D3h%2D15a3%203%200%2000%2D3%203v%2E158l9%2E714%205%2E978a1%2E5%201%2E5%200%20001%2E572%200L22%2E5%206%2E908z%22%2F%3E%20%3C%2Fsvg%3E">
 #[function_component]
 pub fn EnvelopeIcon(props: &Props) -> Html {
     let Props { class } = props.clone();
