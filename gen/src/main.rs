@@ -69,12 +69,10 @@ fn process_styles(module_file: &mut File, size_folder_name: &str) {
                 let file_name = stem.to_str().unwrap();
 
                 let svg = fs::read_to_string(file.path()).unwrap();
+                let svg = svg.trim();
 
                 let re = Regex::new(r"<svg ").unwrap();
-                let svg = re.replace(
-                    &svg,
-                    "<svg class={{ props.class.clone() }} fill-rule=\"currentColor\" ",
-                );
+                let svg = re.replace(svg, "<svg {{class}} fill-rule=\"currentColor\" ");
 
                 let re = Regex::new("fill=\"#[\\w]{3,6}\"").unwrap();
                 let svg = re.replace_all(&svg, "");
@@ -91,7 +89,7 @@ fn process_styles(module_file: &mut File, size_folder_name: &str) {
                     "./src/size_{size_folder_name}/{style_folder_name}/{snake_name}.rs"
                 ))
                 .unwrap();
-                writeln!(&mut component_file, "{}", component).unwrap();
+                write!(&mut component_file, "{}", component).unwrap();
             }
         }
     }
@@ -104,6 +102,8 @@ use crate::props::Props;
 
 #[function_component]
 pub fn {}Icon(props: &Props) -> Html {{
+    let Props {{ class }} = props.clone();
+
   html! {{
 {}
   }}
