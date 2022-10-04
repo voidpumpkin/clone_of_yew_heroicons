@@ -116,6 +116,7 @@ pub fn {name}Icon(props: &Props) -> Html {{
   html! {{
 {svg}
   }}
-}}"#
+}}
+"#
     )
 }
