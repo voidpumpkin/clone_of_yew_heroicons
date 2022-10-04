@@ -105,7 +105,7 @@ use crate::props::Props;
 #[function_component]
 pub fn {}Icon(props: &Props) -> Html {{
   html! {{
-    {}
+{}
   }}
 }}",
         name, svg
