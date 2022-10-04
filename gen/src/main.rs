@@ -91,7 +91,7 @@ fn process_styles(module_file: &mut File, size_folder_name: &str) {
 
                 let snake_name = file_name.to_case(Case::Snake);
 
-                writeln!(&mut style_module, "pub mod {};", snake_name).unwrap();
+                writeln!(&mut style_module, "mod {};", snake_name).unwrap();
                 writeln!(&mut style_module, "pub use {}::*;", snake_name).unwrap();
                 let mut component_file = File::create(format!(
                     "./src/size_{size_folder_name}/{style_folder_name}/{snake_name}.rs"
