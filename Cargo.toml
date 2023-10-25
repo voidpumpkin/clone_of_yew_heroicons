@@ -10,7 +10,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-yew = { git = "https://github.com/yewstack/yew", rev = "0ecee11a2f8a8814e1997c2d0b4ab0b49da949d0" }
+yew = "*"
 
 [workspace]
 members = ["gen"]
